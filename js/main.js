@@ -81,6 +81,52 @@ function main() {
   });
   
 
+// ===== Lightbox Webボタン制御 =====
+document.addEventListener("DOMContentLoaded", function () {
+
+  document.querySelectorAll('a[data-lightbox-gallery]').forEach(function(el) {
+
+    el.addEventListener('click', function () {
+
+      const isWeb = this.closest('.web');
+      const url = this.getAttribute('data-url');
+
+      setTimeout(function () {
+
+        const wrap = document.querySelector('.nivo-lightbox-wrap');
+        if (!wrap) return;
+
+        // 以前のボタン削除
+        document.querySelectorAll('.lightbox-link-btn').forEach(btn => btn.remove());
+
+        if (!isWeb || !url) return;
+
+        const btn = document.createElement('a');
+        btn.href = url;
+        btn.target = '_blank';
+        btn.className = 'lightbox-link-btn';
+        btn.innerText = 'webサイトへ →';
+
+        btn.style.display = 'block';
+        btn.style.textAlign = 'center';
+        btn.style.marginTop = '15px';
+        btn.style.padding = '10px';
+        btn.style.background = '#333';
+        btn.style.color = '#fff';
+        btn.style.textDecoration = 'none';
+        btn.style.borderRadius = '4px';
+
+        wrap.appendChild(btn);
+
+      }, 300);
+
+    });
+
+  });
+
+});
+
+
 }
 
 main();
