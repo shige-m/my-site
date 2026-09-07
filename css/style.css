@@ -215,11 +215,18 @@ ol.type li {
 	display: inline-block;
 	margin-left: 20px;
 }
+
+.pc {
+	display: block;
+}
 @media screen and (max-width:768px){
 	ol.type li {
 		display: inline-block;
 		margin-left: 0px;
 		margin-bottom: 20px;
+	}
+	.pc {
+	display: none;
 	}
 }
 ol.type li a {
